@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Navigation Bar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #ffffff;
+        }
+        nav#topmenu ul {
+            list-style-type: none;
+            background-color: #0c2a41;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+        nav#topmenu li {
+            font-size: 20px;
+            line-height: 30px;
+            height: 30px;
+            padding: 20px;
+            display: inline-block;
+        }
+        nav#topmenu a{
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            transition: all 0.3s ease;
+            padding: 6px;
+        }
+        nav#topmenu a:hover {
+            background-color: #005fbd;
+            border-radius: 10px;
+        }
+        section {
+        width: 1000px;
+        margin: 25px auto;
+        }
+        h1 {
+            font-size: 35px;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+        p {
+            font-size: 25px;
+            color: #000000;
+        }
+        article header p {
+            font-size: 20px;
+            font-style: italic;
+            color: #666;
+        }
+        footer {
+            background-color: #393939;
+            color: #ffffff;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            color: rgb(227, 255, 255);
+            margin: 0;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            nav#topmenu li {
+                display: block;
+                padding: 10px 0;
+            }
+            nav#topmenu ul {
+                text-align: center;
+            }
+            h1 {
+                font-size: 25px;
+            }
+            p {
+                font-size: 16px;
+            }
+
+        }
+    </style>
+    </head>
+    <body>
+        <nav id="topmenu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <br>
+        <section>
+            <article>
+                <header>
+                    <h1>Just Another Day</h1>
+                    <p>Written by Christma on January 11th</p>
+                </header>
+                <p>This is my second blog entry, and I just wanted to check in on you.</p>
+            </article> 
+            <br>
+            <article>
+                <header>
+                    <h1>My First Blog Entry</h1>
+                    <p>Written by Christma on January 10th</p>
+                </header>
+                <p>I'm so happy to write my first blog entry-yay!</p>
+            </article>
+        </section>
+        <footer>
+            <p>&copy; Copyright 2026 Yến Chi</p>
+        </footer>
+    </body>
+</html>

@@ -1,5 +1,4 @@
-@import
-    url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
     body {
         font-family: Roboto, sans-serif;
         background: #e2d7aa;
@@ -9,7 +8,7 @@
         line-height: 24px;
         margin: 0 auto 
     }
-    body>div.img-container>img{
+    body>div.img-container>img {
         width: 1100px;
         height: 450px;
         margin-left: 40px;
@@ -38,7 +37,6 @@
     }
     nav a {
         font-size: 28px;
-        text-decoration: none;
         color: #000000;
     }
     nav ul li {
@@ -97,8 +95,7 @@
         padding: 10px 0 10px 0 ;
         text-align:center
     }
-    article
-    p:last-of-type span:first-of-type
+    article p:last-of-type span:first-of-type
     a::before {
         content:
         url("images/comment.png");

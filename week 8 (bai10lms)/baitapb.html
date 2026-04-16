@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rectangle Calculator</title>
+<style>
+    body {
+        background-color: rgb(193, 200, 232);
+    }
+    .box {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: center;
+        background-color: azure;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    input {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+        border-radius: 3px;
+    }
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        border-radius: 3px;
+    }
+</style>
+</head>
+    <script>
+    function calculateCircle() {
+        let r = Number(document.getElementById("radius").value);
+        let pi = 3.14;
+        let area = pi * r * r;
+        let perimeter= 2 * pi * r;
+        document.getElementById("result").innerHTML = "Area: " + area + "<br>Perimeter: " + perimeter;
+    }
+    </script>
+<body>
+    <div class="box">
+        <h1>Circle Calculator</h1>
+        <label> Radius:</label>
+        <input type="number" id="radius">
+        <button onclick="calculateCircle()">Calculate</button>
+        <p id="result"></p>
+    </div>
+</body>

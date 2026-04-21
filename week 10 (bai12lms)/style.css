@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5e6ca, #d2b48c);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form box */
+.calculator {
+    background: #fffaf0;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Table */
+table {
+    border-collapse: collapse;
+}
+
+/* Title */
+.title h2 {
+    text-align: center;
+    color: #5c4033;
+    margin-bottom: 10px;
+}
+
+/* Label */
+.label {
+    text-align: right;
+    padding-right: 10px;
+    color: #8b5e3c;
+    font-weight: bold;
+}
+
+/* Input */
+input, select {
+    padding: 8px;
+    border: 1px solid #c8a97e;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Button */
+.btn {
+    text-align: center;
+    padding-top: 10px;
+}
+
+input[type="button"] {
+    background: #8b5e3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+input[type="button"]:hover {
+    background: #5c4033;
+}

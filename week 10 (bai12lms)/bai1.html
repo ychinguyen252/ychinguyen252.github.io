@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form name="frmCal" class="calculator">
+    <table>
+        <tr>
+            <td colspan="2" class="title">
+                <h2>MINI CALCULATOR</h2>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label">a =</td>
+            <td><input name="txta" type="number"></td>
+        </tr>
+
+        <tr>
+            <td class="label">b =</td>
+            <td><input name="txtb" type="number"></td>
+        </tr>
+        <tr>
+            <td class="label">Operator:</td>
+            <td>
+                <select name="slto">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                    <option value="%">%</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Result:</td>
+            <td><input name="txtr" readonly></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="btn">
+                <input type="button" value="Calculate" onclick="calculate()">
+            </td>
+        </tr>
+    </table>
+</form>
+
+<script>
+function calculate() {
+    let a = parseFloat(document.frmCal.txta.value);
+    let b = parseFloat(document.frmCal.txtb.value);
+    let op = document.frmCal.slto.value;
+    let result = 0;
+
+    if (isNaN(a) || isNaN(b)) {
+        alert("Vui lòng nhập số!");
+        return;
+    }
+
+    switch(op) {
+        case "+": result = a + b; break;
+        case "-": result = a - b; break;
+        case "*": result = a * b; break;
+        case "/": result = b !== 0 ? a / b : "Không chia cho 0"; break;
+        case "%": result = a % b; break;
+    }
+
+    document.frmCal.txtr.value = result;
+}
+</script>
+
+</body>
+</html>

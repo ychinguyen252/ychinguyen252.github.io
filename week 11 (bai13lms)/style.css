@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+.container {
+    width: 600px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+h2 {
+    color: #b30000;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin: 10px 0;
+}
+
+label {
+    display: inline-block;
+    width: 140px;
+    color: #336699;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.small {
+    width: 60px;
+}
+
+.half {
+    width: 120px;
+}
+
+.inline {
+    margin-left: 20px;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 50px;
+    margin-left: 140px;
+}
+
+hr {
+    margin: 15px 0;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 25px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkred;
+}

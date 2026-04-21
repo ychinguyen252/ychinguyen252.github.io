@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<title>Multiplication table</title>
+<script>
+function display() {
+    a = document.f.a;
+    var txt = document.getElementById("view_area").contentWindow;
+
+    txt.document.body.innerHTML = ""; //clear old content
+    if(a.value == "" || isNaN(a.value))
+        txt.document.write("<font color='red'>You must enter a number</font>");
+    else {
+        txt.document.write("<b>Multiplication table " + a.value + ":</b><br/>");
+        for(i=1; i<=10; i++)
+            txt.document.write(a.value + " x " + i + " = " + (i*a.value) + "<br/>");
+    }
+}
+</script>
+</head>
+<body>
+<form name="f" class="container">
+    <h2>MULTIPLICATION TABLE</h2>
+    <label>Enter a number:</label>
+    <input name="a" onchange="display()" placeholder="Ví dụ: 5">
+    <iframe id="view_area"></iframe>
+</form>
+</body>
+</html>

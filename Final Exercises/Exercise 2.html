@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng Giá Linh Kiện Máy Tính</title>
+    
+    <style>
+        /* Định dạng cho bảng, tiêu đề cột (th) và các ô dữ liệu (td) */
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            padding: 15px; /* Tạo khoảng cách từ viền đến chữ bên trong ô */
+        }
+        
+        /* Căn lề trái cho chữ trong bảng dễ đọc hơn */
+        th, td {
+            text-align: center;
+            font-size: 15px;
+        }
+        #priceTable {
+            width: 60%;
+            margin: auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        h2, p {
+            text-align: center;
+            font-size: 20px;
+        }
+        #cuoi {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #colorButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Cửa hàng linh kiện PC Store &trade;</h2>
+    <p>&bull; Bảng giá mang tính chất tham khảo.</p>
+
+    <button id="colorButton" onclick="changeColor()">Change Color</button>
+    <br><br>
+
+    <table id="priceTable">
+        <tr>
+            <th>Tên linh kiện</th>
+            <th>Giá (VNĐ)</th>
+        </tr>
+        <tr>
+            <td>CPU Intel Core i5-14400F</td>
+            <td>4.900.000</td>
+        </tr>
+        <tr>
+            <td>VGA Nvidia RTX 4060</td>
+            <td>8.500.000</td>
+        </tr>
+        <tr>
+            <td>RAM 16GB DDR5</td>
+            <td>1.200.000</td>
+        </tr>
+        <tr>
+            <td>SSD 1TB NVMe</td>
+            <td>1.800.000</td>
+        </tr>
+    </table>
+    <p id="cuoi">Bản quyền thuộc về PC Store 2026 &copy;</p>
+    <script>
+        function changeColor() {
+            document.getElementById("priceTable").style.color = "red";
+        }
+    </script>
+</body>
+</html>

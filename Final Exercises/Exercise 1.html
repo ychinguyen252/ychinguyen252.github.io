@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1 - Form Đăng Ký Flexbox</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* Dùng Flexbox để căn giữa form giữa màn hình */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1c1a3a;
+        }
+
+        /* Dùng Flexbox cho Form để sắp xếp các ô nhập liệu theo cột dọc */
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Khoảng cách giữa các phần tử */
+            background: rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 0;
+            color: #333;
+        }
+
+        /* Dùng Flexbox cho từng nhóm thẻ label & input */
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #373b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #7474c4;
+        }
+
+        /* Định dạng cho chữ hiển thị độ mạnh mật khẩu và thông báo */
+        #strength-text {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        #message {
+            font-size: 14px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <form class="register-form" id="regForm">
+        <h2>Đăng Ký User</h2>
+
+        <div class="input-group">
+            <label for="username">Tên đăng nhập:</label>
+            <input type="text" id="username" placeholder="Nhập 5-15 ký tự" required>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Mật khẩu:</label>
+            <input type="password" id="password" placeholder="Chứa chữ và số" required>
+            <span id="strength-text"></span>
+        </div>
+
+        <div class="input-group">
+            <label for="avatar">Ảnh đại diện (JPG/PNG):</label>
+            <input type="file" id="avatar" accept=".jpg, .jpeg, .png" required>
+        </div>
+
+        <button type="submit">Đăng Ký</button>
+        <p id="message"></p>
+    </form>
+
+    <script>
+        const passwordInput = document.getElementById("password");
+        const strengthText = document.getElementById("strength-text");
+        const regForm = document.getElementById("regForm");
+        const message = document.getElementById("message");
+
+        // YÊU CẦU 4: Hiển thị độ mạnh mật khẩu Real-time
+        // ==========================================
+        passwordInput.addEventListener("input", function() {
+            const val = passwordInput.value;
+            
+            // Xóa chữ nếu ô mật khẩu trống
+            if (val.length === 0) {
+                strengthText.textContent = "";
+                return;
+            }
+
+            // Kiểm tra xem có chữ và số không bằng Biểu thức chính quy 
+            const hasLetters = /[a-zA-Z]/.test(val);
+            const hasNumbers = /[0-9]/.test(val);
+
+            // Logic phân loại độ mạnh
+            if (val.length >= 8 && hasLetters && hasNumbers) {
+                strengthText.textContent = "Độ mạnh: Mạnh";
+                strengthText.style.color = "green";
+            } else if (hasLetters && hasNumbers) {
+                strengthText.textContent = "Độ mạnh: Trung bình";
+                strengthText.style.color = "orange";
+            } else {
+                strengthText.textContent = "Độ mạnh: Yếu";
+                strengthText.style.color = "red";
+            }
+        });
+
+        // YÊU CẦU 2: Thêm các quy tắc Validation
+        // ==========================================
+        regForm.addEventListener("submit", function(event) {
+            // Ngăn form tự động tải lại trang khi bấm submit
+            event.preventDefault(); 
+
+            const username = document.getElementById("username").value.trim();
+            const password = passwordInput.value;
+            const fileInput = document.getElementById("avatar").value;
+
+            // 1. Kiểm tra độ dài Username (5-15 ký tự)
+            if (username.length < 5 || username.length > 15) {
+                showMessage("Tên đăng nhập phải từ 5 đến 15 ký tự!", "red");
+                return;
+            }
+
+            // 2. Kiểm tra Mật khẩu (phải chứa cả chữ và số)
+            const hasLetters = /[a-zA-Z]/.test(password);
+            const hasNumbers = /[0-9]/.test(password);
+            if (!hasLetters || !hasNumbers) {
+                showMessage("Mật khẩu bắt buộc phải chứa cả chữ cái và chữ số!", "red");
+                return;
+            }
+
+            // 3. Kiểm tra định dạng file (JPG hoặc PNG)
+            // Lấy đuôi file (phần sau dấu chấm cuối cùng) và chuyển thành chữ thường
+            const fileExtension = fileInput.split('.').pop().toLowerCase();
+            if (fileExtension !== "jpg" && fileExtension !== "jpeg" && fileExtension !== "png") {
+                showMessage("Vui lòng tải lên file ảnh định dạng JPG hoặc PNG!", "red");
+                return;
+            }
+
+            // Nếu vượt qua hết các bài kiểm tra thì báo thành công
+            showMessage("🎉 Đăng ký hợp lệ và thành công!", "green");
+        });
+
+        // Hàm phụ để hiển thị thông báo lỗi/thành công cho gọn code
+        function showMessage(text, color) {
+            message.textContent = text;
+            message.style.color = color;
+        }
+    </script>
+</body>
+</html>

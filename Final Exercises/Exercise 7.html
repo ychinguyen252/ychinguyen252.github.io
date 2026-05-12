@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #c1cde7;
+            padding: 40px;
+        }
+        .lienhe {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="submit"] {
+            resize: none;
+            background-color: #566d9f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <form name="CONTACT" class="lienhe">
+        <h1>Contact Form</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        document.querySelector('.lienhe').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn form submit mặc định
+            alert('Form submitted successfully!');
+        });
+        if (CONTACT.lienhe.value.trim() === '') {
+            alert('Please fill in all fields!');
+        } else {
+            alert('Form submitted successfully!');
+        }
+    </script>
+</body>
+</html>

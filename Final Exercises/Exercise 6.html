@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Nhà Sách</title>
+  <style>
+    /* Reset */
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background: #c1cde7;
+      padding: 40px;
+    }
+
+    /* Khung menu */
+    .menu-container{
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+
+    /* Nút Toggle */
+    .toggle-btn{
+      padding: 10px 20px;
+      border: none;
+      background: #4f46e5;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .toggle-btn:hover{
+      background: #4338ca;
+    }
+
+    /* Navigation */
+    .navbar{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+    }
+
+    /* Link */
+    .navbar a{
+      text-decoration: none;
+      color: #374151;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .navbar a:hover{
+      color: #4f46e5;
+    }
+    /* Dấu chấm */
+    .dot{
+      color: gray;
+    }
+    /* Ẩn menu */
+    .hidden{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="menu-container">
+
+    <!-- Nút Toggle -->
+    <button class="toggle-btn"
+            onclick="toggleMenu()">
+      Toggle Menu
+    </button>
+
+    <!-- Menu -->
+    <div class="navbar" id="menu">
+
+      <a href="#">Home</a>
+
+      <span class="dot">•</span>
+
+      <a href="#">Books ©</a>
+
+      <span class="dot">•</span>
+
+      <a href="#">Authors ™</a>
+
+      <span class="dot">•</span>
+
+      <a href="#">Contact</a>
+
+    </div>
+
+  </nav>
+
+  <script>
+
+    // Hàm ẩn/hiện menu
+    function toggleMenu(){
+
+      // Lấy menu
+      let menu = document.getElementById("menu");
+
+      // Toggle class hidden
+      menu.classList.toggle("hidden");
+
+    }
+
+  </script>
+
+</body>
+</html>

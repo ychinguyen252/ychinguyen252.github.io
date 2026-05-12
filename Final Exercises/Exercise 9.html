@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise 9</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+        }
+        .loai {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 35%;
+        }
+        .gia {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+            color: #3bad35;
+        }
+        .mo-ta {
+            color: #666;
+        }
+        .san-pham {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            color: #09315b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bảng trưng bày sản phẩm ®</h1>
+    <button onclick="togglePrices()"> → Toggle Price</button>
+    <div class="san-pham">
+        <div class="loai">
+            <h2>Tai nghe</h2>
+            <div class="gia">Giá : 500 €</div>
+            <p class="mo-ta">Tai nghe chất lượng cao với công nghệ chống ồn giúp bạn tận hưởng âm thanh rõ ràng và sâu hơn.</p>
+        </div>
+
+        <div class="loai">
+            <h2>Điện thoại</h2>
+            <div class="gia">Giá : 10.000 €</div>
+            <p class="mo-ta">Điện thoại thông minh với màn hình lớn và camera chất lượng cao.Thiết kế mỏng nhẹ, dễ dàng mang theo.</p>
+        </div>
+
+        <div class="loai">
+            <h2>Laptop</h2>
+            <div class="gia">Giá : 15.000 €</div>
+            <p class="mo-ta">Laptop mạnh mẽ với hiệu năng vượt trội, lý tưởng cho công việc và giải trí. Đồ hoạ cao phù hợp với các tác vụ nặng.</p>
+        </div>
+
+        <div class="loai">
+            <h2>Máy tính bảng</h2>
+            <div class="gia">Giá : 7.000 €</div>
+            <p class="mo-ta">Máy tính bảng tiện lợi với màn hình sắc nét, phù hợp cho việc đọc sách, xem phim và làm việc di động. Thiết kế mỏng nhẹ, dễ dàng mang theo.</p>
+        </div>
+    </div>
+
+        <script>
+            function togglePrices() {
+                const prices =document.getElementsByClassName('gia')
+                for(let i = 0; i < prices.length; i++){
+                    if(prices[i].style.display === 'none'){
+                        prices[i].style.display = 'block';
+                    }else{
+
+            prices[i].style.display = 'none';
+
+        }
+
+    }
+
+}
+        </script>
+</body>
+</html>

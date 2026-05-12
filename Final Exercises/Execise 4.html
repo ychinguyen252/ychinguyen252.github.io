@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực đơn nhà hàng</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: antiquewhite;
+        }
+
+        .phan-menu {
+            margin: 20px;
+        }
+
+        .mon {
+            padding: 8px;
+        }
+
+        /* món chay */
+        .chay {
+            color: rgb(5, 25, 120);
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 16px;
+            color: aliceblue;
+            background-color: #375d97;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thực đơn nhà hàng</h1>
+    <!-- Khai vị -->
+    <div class="phan-menu">
+        <h2>Khai vị ®</h2>
+        <div class="mon chay">Salad ≥ 50.000đ</div>
+        <div class="mon">Cánh gà ≥ 80.000đ</div>
+    </div>
+
+    <!-- Món chính -->
+    <div class="phan-menu">
+        <h2>Món chính §</h2>
+        <div class="mon chay">Mì rau củ ≥ 100.000đ</div>
+        <div class="mon">Bò bít tết ≥ 150.000đ</div>
+    </div>
+
+    <!-- Tráng miệng -->
+    <div class="phan-menu">
+        <h2>Tráng miệng</h2>
+        <div class="mon chay">Kem ≥ 40.000đ</div>
+        <div class="mon">Bánh ≥ 60.000đ</div>
+    </div>
+
+    <!-- Đồ uống -->
+    <div class="phan-menu">
+        <h2>Đồ uống</h2>
+        <div class="mon chay">Nước ép ≥ 30.000đ</div>
+        <div class="mon">Cà phê ≥ 20.000đ</div>
+    </div>
+    <button onclick="locMenu()">Lọc menu</button>
+
+    <script>
+        let chiHienChay = false;
+        function locMenu() {
+            const danhSachMon = document.getElementsByClassName("mon");
+            // đổi trạng thái (toggle)
+            chiHienChay = !chiHienChay;
+            for (let i = 0; i < danhSachMon.length; i++) {
+                if (chiHienChay) {
+                    if (!danhSachMon[i].classList.contains("chay")) {
+                        danhSachMon[i].style.display = "none";
+                    } else {
+                        danhSachMon[i].style.display = "block";
+                    }
+                } else {
+                    // hiện lại tất cả
+                    danhSachMon[i].style.display = "block";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

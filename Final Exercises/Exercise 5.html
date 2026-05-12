@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Giao diện Tab</title>
+
+  <style>
+
+    /* Xóa khoảng cách mặc định */
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Căn giữa màn hình */
+    body{
+      background: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Khung chính */
+    .container{
+      width: 700px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Khu vực chứa tab */
+    .tabs{
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Style chung cho tab */
+    .tab{
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #d1d5db;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    /* Hover tab */
+    .tab:hover{
+      background: #9ca3af;
+      color: white;
+    }
+
+    /* Tab đang hoạt động */
+    .tab.active{
+      background: #4f46e5;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Nội dung tab */
+    .content{
+      display: none;
+      background: #f9fafb;
+      padding: 20px;
+      border-radius: 10px;
+      line-height: 1.6;
+    }
+
+    /* Hiển thị nội dung active */
+    .content.active{
+      display: block;
+    }
+
+    h2{
+      color: #4f46e5;
+      margin-bottom: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- Các nút tab -->
+    <div class="tabs">
+      <button class="tab active"
+              onclick="switchTab('tinhnang', this)">
+        Tính năng
+      </button>
+      <button class="tab"
+              onclick="switchTab('giaca', this)">
+        Giá cả
+      </button>
+      <button class="tab"
+              onclick="switchTab('danhgia', this)">
+        Đánh giá
+      </button>
+      <button class="tab"
+              onclick="switchTab('hotro', this)">
+        Hỗ trợ
+      </button>
+    </div>
+    <!-- Nội dung từng tab -->
+    <div id="tinhnang" class="content active">
+      <h2>Tính năng</h2>
+      <p>
+        Website có giao diện đẹp, tốc độ nhanh,
+        dễ sử dụng và tương thích với điện thoại.
+      </p>
+    </div>
+
+    <div id="giaca" class="content">
+      <h2>Giá cả</h2>
+      <p>
+        Có nhiều gói dịch vụ phù hợp với nhu cầu
+        của người dùng.
+      </p>
+    </div>
+
+    <div id="danhgia" class="content">
+      <h2>Đánh giá</h2>
+      <p>
+        Người dùng đánh giá cao vì giao diện thân thiện
+        và hoạt động ổn định.
+      </p>
+    </div>
+
+    <div id="hotro" class="content">
+      <h2>Hỗ trợ</h2>
+      <p>
+        Hỗ trợ khách hàng 24/7 qua email và hotline.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Hàm chuyển tab
+    function switchTab(tabId, element){
+      // Lấy tất cả tab
+      let tabs = document.querySelectorAll(".tab");
+      // Xóa active khỏi tất cả tab
+      tabs.forEach(tab => {
+        tab.classList.remove("active");
+      });
+      // Lấy tất cả nội dung
+      let contents = document.querySelectorAll(".content");
+      // Ẩn tất cả nội dung
+      contents.forEach(content => {
+        content.classList.remove("active");
+      });
+      // Thêm active cho tab được nhấn
+      element.classList.add("active");
+      // Hiển thị nội dung tương ứng
+      document.getElementById(tabId)
+              .classList.add("active");
+    }
+
+  </script>
+</body>
+</html>

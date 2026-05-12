@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký Newsletter</title>
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background: #dacab6;
+      padding: 40px;
+    }
+
+    /* Khung form */
+    .container{
+      width: 500px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    /* CSS Grid */
+    form{
+      display: grid;
+      gap: 15px;
+    }
+
+    .input-group{
+      display: flex;
+      flex-direction: column;
+    }
+
+    label{
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    input{
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    /* Radio và checkbox */
+    .options{
+      display: flex;
+      gap: 15px;
+      margin-top: 5px;
+    }
+
+    .options label{
+      font-weight: normal;
+    }
+
+    /* Button */
+    .btn{
+      background: #566d9f;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover{
+      background: #40527a;
+    }
+
+    /* Thông báo */
+    #message{
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Đăng ký Newsletter</h2>
+
+    <form id="newsletterForm">
+
+      <!-- Họ tên -->
+      <div class="input-group">
+        <label>Họ và tên</label>
+
+        <input type="text"
+               id="name"
+               placeholder="Nguyễn Văn A">
+      </div>
+
+      <!-- Email -->
+      <div class="input-group">
+        <label>Email</label>
+
+        <input type="email"
+               id="email"
+               placeholder="example@email.com">
+      </div>
+
+      <!-- Subscription Type -->
+      <div class="input-group">
+
+        <label>Loại đăng ký</label>
+
+        <div class="options">
+
+          <label>
+            <input type="radio"
+                   name="subscription"
+                   value="monthly">
+
+            Monthly
+          </label>
+
+          <label>
+            <input type="radio"
+                   name="subscription"
+                   value="yearly">
+
+            Yearly
+          </label>
+
+        </div>
+
+      </div>
+
+      <!-- Interests -->
+      <div class="input-group">
+
+        <label>Sở thích</label>
+
+        <div class="options">
+
+          <label>
+            <input type="checkbox"
+                   name="interest"
+                   value="technology">
+
+            Công nghệ
+          </label>
+
+          <label>
+            <input type="checkbox"
+                   name="interest"
+                   value="books">
+
+            Sách
+          </label>
+
+          <label>
+            <input type="checkbox"
+                   name="interest"
+                   value="music">
+
+            Âm nhạc
+          </label>
+
+        </div>
+
+      </div>
+
+      <!-- Nút submit -->
+      <button type="submit"
+              class="btn">
+
+        Đăng ký
+
+      </button>
+
+      <!-- Thông báo -->
+      <p id="message"></p>
+
+    </form>
+
+  </div>
+
+  <script>
+
+    // Lấy form
+    const form = document.getElementById("newsletterForm");
+
+    // Khi submit form
+    form.addEventListener("submit", function(event){
+
+      // Chặn reload trang
+      event.preventDefault();
+
+      // Lấy dữ liệu
+      const name = document.getElementById("name").value;
+
+      const email = document.getElementById("email").value;
+
+      const interests =
+        document.querySelectorAll('input[name="interest"]:checked');
+
+      const message =
+        document.getElementById("message");
+
+      // Kiểm tra rỗng
+      if(name === "" || email === ""){
+
+        message.textContent =
+          "Vui lòng nhập đầy đủ thông tin";
+
+        message.style.color = "red";
+
+        return;
+      }
+
+      // Kiểm tra email
+      if(!email.includes("@") || !email.includes(".")){
+        message.textContent =
+          "Email không hợp lệ";
+        message.style.color = "red";
+        return;
+      }
+
+      // Kiểm tra checkbox
+      if(interests.length === 0){
+        message.textContent =
+          "Vui lòng chọn ít nhất 1 sở thích";
+        message.style.color = "red";
+        return;
+      }
+
+      // Thành công
+      message.textContent =
+        "Đăng ký newsletter thành công!";
+      message.style.color = "green";
+
+    });
+
+  </script>
+
+</body>
+</html>
